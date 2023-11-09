@@ -36,7 +36,7 @@ public class GuessingGame {
 			if (convertedUserGuess == gameNumber) {
 				System.out.println("You Win!");
 				System.out.println(i);
-				i = 5;
+				break;
 			} else if (i == 5) {
 				System.out.println("You Lose!");
 				System.out.println("The number was: " + gameNumber);
