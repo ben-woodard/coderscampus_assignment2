@@ -7,20 +7,19 @@ public class GuessingGame {
 
 	public static void main(String[] args) {
 
-		// Generating random number //
-
+		// Generating random number and assigning to gameNumber //
 		Random randomNumber = new Random();
 		int gameNumber = randomNumber.nextInt(1, 100);
 
-		// Obtain user Guess convert to //
+		// Obtain user Guess convert to Integer and assign to convertedUserGuess//
 		System.out.println("Pick a number between 1 and 100");
 		Scanner gameScanner = new Scanner(System.in);
 		String userGuess = gameScanner.nextLine();
 		Integer convertedUserGuess = Integer.parseInt(userGuess);
 
-		// While loop if userGuess != gameNumber//
+		// While loop to with conditionals comparing gameNumber and convertedUserGuess//
 		int i = 1;
-		while (i < 6) {
+		while (i < 5) {
 			if (convertedUserGuess < gameNumber) {
 				System.out.println("Please pick a higher number");
 				userGuess = gameScanner.nextLine();
@@ -33,11 +32,12 @@ public class GuessingGame {
 				i++;
 			}
 
-	// Conditional statement if userGuess = gameNumber, or user has hit 5 guesses//
+			// Conditional statement if userGuess = gameNumber, or user has hit 5 guesses//
 			if (convertedUserGuess == gameNumber) {
 				System.out.println("You Win!");
-				i = 6;
-			} else if (i == 6) {
+				System.out.println(i);
+				i = 5;
+			} else if (i == 5) {
 				System.out.println("You Lose!");
 				System.out.println("The number was: " + gameNumber);
 			}
