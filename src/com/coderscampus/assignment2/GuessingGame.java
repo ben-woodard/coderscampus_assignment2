@@ -32,7 +32,7 @@ public class GuessingGame {
 				i++;
 			}
 
-			// Conditional statement if userGuess = gameNumber, or user has hit 5 guesses//
+			// Conditional statement if convertedUserGuess = gameNumber, or user has hit 5 guesses//
 			if (convertedUserGuess == gameNumber) {
 				System.out.println("You Win!");
 				System.out.println(i);
