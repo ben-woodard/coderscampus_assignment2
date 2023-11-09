@@ -10,7 +10,7 @@ public class GuessingGame {
 		// Generating random number and assigning to gameNumber //
 		Random randomNumber = new Random();
 		int gameNumber = randomNumber.nextInt(1, 100);
-
+       
 		// Obtain user Guess convert to Integer and assign to convertedUserGuess//
 		System.out.println("Pick a number between 1 and 100");
 		Scanner gameScanner = new Scanner(System.in);
@@ -35,7 +35,6 @@ public class GuessingGame {
 			// Conditional statement if convertedUserGuess = gameNumber, or user has hit 5 guesses//
 			if (convertedUserGuess == gameNumber) {
 				System.out.println("You Win!");
-				System.out.println(i);
 				break;
 			} else if (i == 5) {
 				System.out.println("You Lose!");
