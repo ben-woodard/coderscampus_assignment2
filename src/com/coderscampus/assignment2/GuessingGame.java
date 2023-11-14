@@ -48,16 +48,17 @@ public class GuessingGame {
 
 			// conditionals for guessCount == 5
 			if (guessCount == 5) {
-				if (convertedUserGuess > 1 && convertedUserGuess < 100) {
-					System.out.println("You Lose!");
-					System.out.println("The number was: " + gameNumber);
-					break;
-				} else if (convertedUserGuess > 100 || convertedUserGuess < 1) {
+				if (convertedUserGuess > 100 || convertedUserGuess < 1) {
 					System.out.println("Your guess is not between 1 and 100, please try again");
 					userGuess = gameScanner.nextLine();
 					convertedUserGuess = Integer.parseInt(userGuess);
+				} else {
+					System.out.println("You Lose!");
+					System.out.println("The number was: " + gameNumber);
+					break;
 				}
 			}
+			System.out.println(guessCount);
 		}
 		gameScanner.close();
 	}
