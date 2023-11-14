@@ -18,34 +18,45 @@ public class GuessingGame {
 		Integer convertedUserGuess = Integer.parseInt(userGuess);
 
 		// While loop to with conditionals comparing gameNumber and convertedUserGuess//
-		int i = 1;
-		while (i < 5) {
-			System.out.println(i);
-			if (convertedUserGuess < 1 || convertedUserGuess > 100) {
-				System.out.println("Your guess is not between 1 and 100, please try again");
-				userGuess = gameScanner.nextLine();
-				convertedUserGuess = Integer.parseInt(userGuess);
-			}
-			if (convertedUserGuess < gameNumber && convertedUserGuess >= 1) {
-				System.out.println("Please pick a higher number");
-				userGuess = gameScanner.nextLine();
-				convertedUserGuess = Integer.parseInt(userGuess);
-				i++;
-			} else if (convertedUserGuess > gameNumber && convertedUserGuess <= 100) {
-				System.out.println("Please pick a lower number");
-				userGuess = gameScanner.nextLine();
-				convertedUserGuess = Integer.parseInt(userGuess);
-				i++;
-			}
+		int guessCount = 1;
+		while (convertedUserGuess != gameNumber) {
 
-			// Conditional statement if convertedUserGuess = gameNumber, or user has hit 5
-			// guesses//
+			// Conditional if convertedUserGuess = gameNumber
 			if (convertedUserGuess == gameNumber) {
 				System.out.println("You Win!");
 				break;
-			} else if (i == 5) {
-				System.out.println("You Lose!");
-				System.out.println("The number was: " + gameNumber);
+			}
+
+			// Conditional Statements for guessCount < 5
+			if (guessCount < 5) {
+				if (convertedUserGuess < 1 || convertedUserGuess > 100) {
+					System.out.println("Your guess is not between 1 and 100, please try again");
+					userGuess = gameScanner.nextLine();
+					convertedUserGuess = Integer.parseInt(userGuess);
+				} else if (convertedUserGuess < gameNumber) {
+					guessCount++;
+					System.out.println("Please pick a higher number");
+					userGuess = gameScanner.nextLine();
+					convertedUserGuess = Integer.parseInt(userGuess);
+				} else if (convertedUserGuess > gameNumber) {
+					guessCount++;
+					System.out.println("Please pick a lower number");
+					userGuess = gameScanner.nextLine();
+					convertedUserGuess = Integer.parseInt(userGuess);
+				}
+			}
+
+			// conditionals for guessCount == 5
+			if (guessCount == 5) {
+				if (convertedUserGuess > 1 && convertedUserGuess < 100) {
+					System.out.println("You Lose!");
+					System.out.println("The number was: " + gameNumber);
+					break;
+				} else if (convertedUserGuess > 100 || convertedUserGuess < 1) {
+					System.out.println("Your guess is not between 1 and 100, please try again");
+					userGuess = gameScanner.nextLine();
+					convertedUserGuess = Integer.parseInt(userGuess);
+				}
 			}
 		}
 		gameScanner.close();
