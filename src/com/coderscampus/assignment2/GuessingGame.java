@@ -12,20 +12,16 @@ public class GuessingGame {
 		int gameNumber = randomNumber.nextInt(1, 100);
 
 		// Obtain user Guess convert to Integer and assign to convertedUserGuess//
+		System.out.println(gameNumber);
 		System.out.println("Pick a number between 1 and 100");
 		Scanner gameScanner = new Scanner(System.in);
 		String userGuess = gameScanner.nextLine();
 		Integer convertedUserGuess = Integer.parseInt(userGuess);
 
-		// While loop to with conditionals comparing gameNumber and convertedUserGuess//
+		// While loop to if convertedUserGuess != gameNumber, set to break if
+		// convertedUserGuess = gameNumber;
 		int guessCount = 1;
 		while (convertedUserGuess != gameNumber) {
-
-			// Conditional if convertedUserGuess = gameNumber
-			if (convertedUserGuess == gameNumber) {
-				System.out.println("You Win!");
-				break;
-			}
 
 			// Conditional Statements for guessCount < 5
 			if (guessCount < 5) {
@@ -52,14 +48,18 @@ public class GuessingGame {
 					System.out.println("Your guess is not between 1 and 100, please try again");
 					userGuess = gameScanner.nextLine();
 					convertedUserGuess = Integer.parseInt(userGuess);
-				} else {
-					System.out.println("You Lose!");
+				} else if (convertedUserGuess != gameNumber) {
+					System.out.println("You lose!");
 					System.out.println("The number was: " + gameNumber);
 					break;
 				}
 			}
-			System.out.println(guessCount);
+
+			// Conditional for convertedUserGuess == gameNumber
 		}
-		gameScanner.close();
+		if (convertedUserGuess == gameNumber) {
+			System.out.println("You win!");
+			gameScanner.close();
+		}
 	}
 }
