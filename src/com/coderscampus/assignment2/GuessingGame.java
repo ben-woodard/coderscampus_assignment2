@@ -12,7 +12,6 @@ public class GuessingGame {
 		int gameNumber = randomNumber.nextInt(1, 100);
 
 		// Obtain user Guess convert to Integer and assign to convertedUserGuess//
-		System.out.println(gameNumber);
 		System.out.println("Pick a number between 1 and 100");
 		Scanner gameScanner = new Scanner(System.in);
 		String userGuess = gameScanner.nextLine();
